@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Our || BLOG</title>
+    <!-- FONTAWESOME LINK -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+      integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- FONTAWESOME LINK -->
+
+    <!-- CUSTOM CSS -->
+    <link rel="stylesheet" href="../css/style.css" />
+    <!-- CUSTOM CSS -->
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="nav_container container">
+          <a href="/">
+            <span>BLOG </span>
+            <span>APP</span>
+          </a>
+          <ul class="menu">
+            <li><a href="/">Home</a></li>
+            <li><a href="#">Write Blog</a></li>
+            <% if(findUser){ %>
+            <li><a href="/auth/logout">Logout</a></li>
+            <% } else{ %>
+            <li><a href="/user/<%-findUser.id%>">Profile</a></li>
+            <% } %>
+          </ul>
+          <div class="socials">
+            <i class="fa-brands fa-facebook-f"></i>
+            <i class="fa-brands fa-instagram"></i>
+            <i class="fa-brands fa-youtube"></i>
+            <i class="fa-brands fa-twitter"></i>
+          </div>
+        </div>
+      </nav>
+      <div class="header_container container">
+        <div class="header_content">
+          <h1>Welcome to Our Blog</h1>
+          <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vitae
+            illum quo fuga, eaque repudiandae sit expedita deleniti ut inventore
+            dolorem?
+          </p>
+          <button>Learn More <i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+      </div>
+    </header>
+
+    <div class="p_container">
+      <div class="profile">
+        <div class="p_img">
+          <img src="/userImages/<%-findUser.image %>" alt="" />
+        </div>
+        <div class="p_content">
+          <form action="/user/update/<%-findUser.id%>" method="POST">
+            <div>
+              <input
+                type="text"
+                name="username"
+                placeholder="Username"
+                value="<%-findUser.username %>"
+              />
+            </div>
+            <div>
+              <input
+                type="text"
+                name="email"
+                placeholder="Email"
+                value="<%-findUser.email %>"
+              />
+            </div>
+            <div>
+              <input type="password" name="password" placeholder="Password" />
+            </div>
+            <div>
+              <input
+                type="password"
+                name="cPassword"
+                placeholder="Confirm Password"
+              />
+            </div>
+            <div class="sub_btn">
+              <button type="submit">Update</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

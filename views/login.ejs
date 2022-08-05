@@ -1,0 +1,36 @@
+
+<%- include('./layout/Navbar.ejs') %>
+
+    <div class="registration_contaienr">
+      <div class="form_container">
+        <form action="/auth/login" method="POST">
+          <div class="email">
+            <input type="email" name="email" placeholder="Email" id="" />
+            <i class="fa-solid fa-user"> </i>
+          </div>
+          <div class="password">
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
+              id=""
+            />
+          </div>
+          <span class="already_account"
+            >Not registred?
+            <a href="/register">
+              <small> creates a new account</small>
+            </a>
+            <a href="/auth/forgetpassword">
+              <small> Forget Password</small>
+            </a>
+          </span>         
+            <button class="submit_btn" type="submit">
+              Sign in
+              <i class="fa-solid fa-arrow-right"></i>
+            </button >
+          </div>
+        </form>
+      </div>
+    </div>
+<%- include('./layout/footer.ejs') %>

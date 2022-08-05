@@ -1,0 +1,41 @@
+<%- include('./layout/Navbar.ejs') %>
+
+<div class="registration_contaienr">
+  <div class="form_container">
+    <form action="/auth/register" method="POST" enctype="multipart/form-data">
+      <div class="input_name">
+        <input type="text" name="username" placeholder="Username" />
+      </div>
+      <div class="email">
+        <input type="email" name="email" placeholder="Email" id="" />
+      </div>
+      <div class="password">
+        <input type="password" name="password" placeholder="Password" id="" />
+      </div>
+      <div class="cPassword">
+        <input
+          type="password"
+          name="cPassword"
+          placeholder="Confirm Password"
+          id=""
+        />
+      </div>
+      <div class="file">
+        <label for="image">Upload image</label>
+        <input type="file" name="image" id="" />
+      </div>
+      <span class="already_account"
+        >Already have an account?
+
+        <a href="/login">
+          <small> sign in </small>
+        </a>
+      </span>
+      <button class="submit_btn" type="submit">
+        Register Now
+        <i class="fa-solid fa-arrow-right"></i>
+      </button>
+    </form>
+  </div>
+</div>
+<%- include('./layout/footer.ejs') %>

@@ -39,11 +39,15 @@ AuthRouter.get("/forgetpassword", (req, res) => {
 });
 
 AuthRouter.post("/register", upload.single("image"), Registration);
+
 AuthRouter.post("/login", Login);
+
 AuthRouter.get("/logout", chckLogIn, LogoutUser);
 
 AuthRouter.post("/forgetpassword", forgetPassword);
 
 AuthRouter.get("/resetpassword/:id/:token", resetPassword);
+
 AuthRouter.post("/resetpassword/:id/:token", resetPasswordUpdate);
+
 module.exports = AuthRouter;

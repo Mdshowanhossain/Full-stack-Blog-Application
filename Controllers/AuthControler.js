@@ -59,10 +59,11 @@ const Login = async (req, res) => {
     }
 
     const jwtToken = await jwt.sign(
-      { id: user._id, username: user.username },
+      { id: user._id, username: user.username, status: user.status },
       process.env.SECRET_KEY,
       { expiresIn: "1h" }
     );
+    console.log(jwtToken);
 
     res.cookie("jwt", jwtToken, {
       expires: new Date(Date.now() + 3000000),
@@ -107,23 +108,23 @@ const forgetPassword = async (req, res) => {
     res.send(`
     <div
       style="
-        background-color: rgb(23, 24, 24);
+        background-color: #f2f2f2;
         font-size: 2rem;
-        color: rgb(139, 172, 172);
+        color: #b9b8b8;
         display: flex;
         gap: 1rem;
         align-items: center;
         justify-content: center;
         height: 50vh;
-
       "
     >
-      <span>Password reset link please</span>
+      <span>Password Reset Link! Please</span>
       <a 
       style="
       color: red;
     "
-      href="${link}">Click here</a> 
+      href="${link}">Click here
+      </a> 
     </div>
     `);
   }
@@ -149,6 +150,7 @@ const resetPassword = async (req, res) => {
     token: token,
   });
 };
+
 const resetPasswordUpdate = async (req, res) => {
   try {
     const { id, token } = req.params;

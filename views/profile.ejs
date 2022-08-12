@@ -1,101 +1,154 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Our || BLOG</title>
-    <!-- FONTAWESOME LINK -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
-      integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <!-- FONTAWESOME LINK -->
 
-    <!-- CUSTOM CSS -->
-    <link rel="stylesheet" href="../css/style.css" />
-    <!-- CUSTOM CSS -->
-  </head>
-  <body>
-    <header>
-      <nav>
-        <div class="nav_container container">
-          <a href="/">
-            <span>BLOG </span>
-            <span>APP</span>
-          </a>
-          <ul class="menu">
-            <li><a href="/">Home</a></li>
-            <li><a href="#">Write Blog</a></li>
-            <% if(findUser){ %>
-            <li><a href="/auth/logout">Logout</a></li>
-            <% } else{ %>
-            <li><a href="/user/<%-findUser.id%>">Profile</a></li>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our || BLOG</title>
+
+  <!-- CUSTOM CSS -->
+  <link rel="stylesheet" href="../css/style.css" />
+  <!-- CUSTOM CSS -->
+  <!-- SCOUT ICONS LINK -->
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
+  <!-- SCOUT ICONS LINK END -->
+</head>
+
+<body>
+  <header class="header">
+    <h2>Blog <span>App</span></h2>
+    <nav class="navbar">
+      <ul class="navbar_list">
+        <li><a href="/">Home</a></li>
+        <li><a href="/blog">Write Blog</a></li>
+        <% if(findUser){ %>
+          <li><a href="/auth/logout"><i class="uil uil-signout"></i></a></li>
+          <% } else{ %>
+            <i class="profile uil uil-user-circle"></i>
             <% } %>
-          </ul>
-          <div class="socials">
-            <i class="fa-brands fa-facebook-f"></i>
-            <i class="fa-brands fa-instagram"></i>
-            <i class="fa-brands fa-youtube"></i>
-            <i class="fa-brands fa-twitter"></i>
-          </div>
-        </div>
-      </nav>
-      <div class="header_container container">
-        <div class="header_content">
-          <h1>Welcome to Our Blog</h1>
-          <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vitae
-            illum quo fuga, eaque repudiandae sit expedita deleniti ut inventore
-            dolorem?
-          </p>
-          <button>Learn More <i class="fa-solid fa-arrow-right"></i></button>
+              <li>
+                <a href="/user/profile">
+                </a>
+              </li>
+      </ul>
+    </nav>
+    <div class="mobile_nav_btns">
+      <i class="uil uil-bars mobile_nav_icons"></i>
+      <i class="uil uil-times mobile_nav_icons"></i>
+    </div>
+    </div>
+  </header>
+
+  <section class="profile-section">
+    <div class="profile-container container ">
+      <div class="block-1">
+        <div class="left">
+          <img src="/userImages/<%-findUser.image %>" alt="">
+          <span>
+            <%-findUser.username %>
+          </span>
         </div>
       </div>
-    </header>
-
-    <div class="p_container">
-      <div class="profile">
-        <div class="p_img">
-          <img src="/userImages/<%-findUser.image %>" alt="" />
-        </div>
-        <div class="p_content">
-          <form action="/user/update/<%-findUser.id%>" method="POST">
-            <div>
-              <input
-                type="text"
-                name="username"
-                placeholder="Username"
-                value="<%-findUser.username %>"
-              />
+      <div class="block-2">
+        <div class="right">
+          <h1>ABOUT</h1>
+          <form action="/user/update/<%-findUser.id%>" method="POST" enctype="multipart/form-data">
+            <div class="profile-about-container">
+              <span>Full Name</span>
+              <input type="text" name="username" placeholder="Full Name" value="<%-findUser.username %>">
             </div>
-            <div>
-              <input
-                type="text"
-                name="email"
-                placeholder="Email"
-                value="<%-findUser.email %>"
-              />
+            <div class="profile-about-container">
+              <span>Email</span>
+              <input type="text" name="email" placeholder="Email" value="<%-findUser.email %>">
             </div>
-            <div>
-              <input type="password" name="password" placeholder="Password" />
+            <div class="profile-about-container">
+              <span>Password</span>
+              <input type="password" name="password" placeholder="Password">
             </div>
-            <div>
-              <input
-                type="password"
-                name="cPassword"
-                placeholder="Confirm Password"
-              />
+            <div class="profile-about-container">
+              <span>Confirm Password</span>
+              <input type="password" name="cPassword" placeholder="Confirm Password">
             </div>
-            <div class="sub_btn">
-              <button type="submit">Update</button>
+            <div class="profile-about-container">
+              <span>Profile Photo</span>
+              <input type="file" name="image" id="" required="true">
             </div>
+            <button class="profile-btn">Update</button>
           </form>
         </div>
       </div>
     </div>
-  </body>
+
+    <div class="bottom container">
+      <h1>POSTS</h1>
+
+      <div class="profile-user-data">
+
+        <div class="table">
+          <div class="table-header">
+            <div class="header__item"><a id="name" class="filter__link" href="#">S No</a></div>
+            <div class="header__item"><a id="wins" class="filter__link filter__link--number" href="#">Image</a></div>
+            <div class="header__item"><a id="draws" class="filter__link filter__link--number" href="#">title</a></div>
+            <div class="header__item"><a id="losses" class="filter__link filter__link--number" href="#">description</a>
+            </div>
+            <div class="header__item"><a id="total" class="filter__link filter__link--number" href="#">Date</a></div>
+            <div class="header__item"><a id="total" class="filter__link filter__link--number" href="#">
+                Action
+              </a></div>
+          </div>
+          <% if(findUser.blogs[0]){ %>
+            <div class="table-content">
+              <% findUser.blogs?.forEach((post,index)=> { %>
+                <div class="table-row">
+                  <div class="table-data">
+                    <%-index%>
+                  </div>
+                  <div class="table-data">
+                    <img src="/blogImages/<%-post.image %>" alt="">
+                  </div>
+                  <div class="table-data">
+                    <%- post.title %>
+                  </div>
+                  <div class="table-data">
+                    <%- post.description %>
+                  </div>
+                  <div class="table-data">10 Aug, 2022</div>
+                  <div class="table-data">
+                    <a href="/blog/<%- post.id%>">
+                      <i class="uil uil-eye"></i>
+                    </a>
+                    <a href="/blog/delete/<%- post.id%>" class="t-icons">
+                      <i class="uil uil-trash-alt"></i>
+                    </a>
+                    <a href="/blog/edit/<%- post.id%>">
+                      <i class="uil uil-edit "></i>
+                    </a>
+                  </div>
+                </div>
+                <% }) %>
+
+                  <% } else{ %>
+                    <div class="sad-alert">
+                      <i class="uil uil-frown"></i>
+                      <h1>No Post To View</h1>
+                    </div>
+                    <% } %>
+            </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <footer>
+    <div class="content">
+      <h3>All rights reserved by <span>
+          @Mohammad Sohan Hossain
+        </span></h3>
+    </div>
+  </footer>
+  <script src="../../JS/app.js"></script>
+</body>
+
 </html>

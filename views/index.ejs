@@ -1,130 +1,132 @@
 <%- include('./layout/Navbar.ejs') %>
 
-<section>
-  <div class="features_container container">
-    <div class="feature_card">
-      <img src="./images/i1.png" alt="" />
+<section class="hero-section">
+  <div class="hero container flex items-center justify-between">
+    <div class="hero-left flex-1">
+      <h1>Lorem ipsum, dolor sit amet consectetur adipisicing</h1>
+      <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque nam
+        inventore veritatis perferendis ratione beatae! Lorem ipsum dolor sit
+        amet consectetur adipisicing elit. Iusto iure ut dolores nesciunt beatae
+        non perspiciatis mollitia nulla omnis ipsum.
+      </p>
+
+      <div class="btn-wrapper">
+        <button class="btn-primary">Detail About Us</button>
+        <button class="btn-secondary">Join With Us</button>
+      </div>
     </div>
-    <div class="feature_card">
-      <img src="./images/i2.png" alt="" />
-    </div>
-    <div class="feature_card">
-      <img src="./images/i3.png" alt="" />
-    </div>
-    <div class="feature_card">
-      <img src="./images/i1.png" alt="" />
+    <div class="hero-right flex-1">
+      <img src="./images/about2.jpg" alt="" />
     </div>
   </div>
 </section>
 
+<section class="container">
+  <div class="features_wrapper grid">
+    <div class="feature_card">
+      <span>OUR ALL BLOGS</span>
+      <h3>CLOUX BLOGS</h3>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore delectus
+        consequuntur necessitatibus quaerat magni corrupti expedita odit
+        corporis dolores! Dignissimos?
+      </p>
+      <span>READ MORE</span>
+    </div>
+    <div class="feature_card">
+      <span>OUR ALL BLOGS</span>
+      <h3>CLOUX BLOGS</h3>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore delectus
+        consequuntur necessitatibus quaerat magni corrupti expedita odit
+        corporis dolores! Dignissimos?
+      </p>
+      <span>READ MORE</span>
+    </div>
+    <div class="feature_card">
+      <span>OUR ALL BLOGS</span>
+      <h3>CLOUX BLOGS</h3>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore delectus
+        consequuntur necessitatibus quaerat magni corrupti expedita odit
+        corporis dolores! Dignissimos?
+      </p>
+      <span>READ MORE</span>
+    </div>
+  </div>
+</section>
+
+<section class="blog-section">
+  <div class="head-title">
+    <h1><span>READ</span> BLOG</h1>
+  </div>
+
+  <section>
+    <div class="category container flex items-center justify-center">
+      <span>ALL</span>
+      <span>ORIGINAL</span>
+      <span>PLAYSTATION</span>
+      <span>STEAM</span>
+      <span>UPLAY</span>
+      <span>XBOX ONE</span>
+      <span>UPLAY</span>
+    </div>
+  </section>
+
+  <div class="blog-card-wrapper container">
+    <% getAllPost.forEach((post,index) => { %>
+    <div class="blog-card">
+      <div class="blog-img">
+        <img src="./blogImages/<%-post.image %>" alt="" />
+      </div>
+      <div class="blog-content">
+        <a href="/blog/<%-post.id %>">
+          <h1><%-post.title %></h1>
+        </a>
+        <div class="blog-text-elipisis">
+          <p><%-post.description %></p>
+        </div>
+        <div class="content flex items-center">
+          <img
+            class="blog-user-img"
+            src="/userImages/<%-post.user.image%>"
+            alt=""
+          />
+          <span><%-post.user.username%></span>
+          <span><i class="uil uil-newspaper"></i> News</span>
+          <span
+            ><i class="uil uil-calendar-alt"></i>
+            <%-post.createdAt.toLocaleDateString()%></span
+          >
+        </div>
+      </div>
+    </div>
+
+    <% }) %>
+  </div>
+</section>
+
 <section>
-  <div class="card_container container">
-    <div class="card">
-      <img src="./images/t.jpg" alt="" />
-      <div class="card_content">
-        <span class="author">Mohammad Sohan</span>
-        <a href="">
-          <h3>
-            New year edition top ux/ui design.New year edition top ux/ui
-            design.New year edition top ux/ui design
-          </h3>
-        </a>
+  <div class="about">
+    <div class="about-content container">
+      <div class="left flex-1">
+        <img src="./images/gallery5.jpg" alt="" />
+      </div>
+
+      <div class="right flex-1">
+        <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h1>
+        <h1>Blog</h1>
         <p>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima esse
-          deleniti at harum officiis dolorem aspernatur repellendus ad, corporis
-          suscipit?
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sequi velit
+          accusantium laborum facilis? Harum sequi ratione et officiis saepe
+          totam possimus, delectus modi, libero facere ipsam animi explicabo
+          quae perspiciatis.
         </p>
-      </div>
-      <div class="card_footer">
-        <div class="left-f">
-          <span>1 Aug | 7 min read</span>
-        </div>
-        <div class="right-f">
-          <i class="fa-solid fa-thumbs-up"></i>
-          <i class="fa-solid fa-comment"></i>
-          <i class="fa-solid fa-share-nodes"></i>
-        </div>
-      </div>
-    </div>
-    <div class="card">
-      <img src="./images/t.jpg" alt="" />
-      <div class="card_content">
-        <span class="author">Mohammad Sohan</span>
-        <a href="">
-          <h3>
-            New year edition top ux/ui design.New year edition top ux/ui
-            design.New year edition top ux/ui design
-          </h3>
-        </a>
-        <p>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima esse
-          deleniti at harum officiis dolorem aspernatur repellendus ad, corporis
-          suscipit?
-        </p>
-      </div>
-      <div class="card_footer">
-        <div class="left-f">
-          <span>1 Aug | 7 min read</span>
-        </div>
-        <div class="right-f">
-          <i class="fa-solid fa-thumbs-up"></i>
-          <i class="fa-solid fa-comment"></i>
-          <i class="fa-solid fa-share-nodes"></i>
-        </div>
-      </div>
-    </div>
-    <div class="card">
-      <img src="./images/t.jpg" alt="" />
-      <div class="card_content">
-        <span class="author">Mohammad Sohan</span>
-        <a href="">
-          <h3>
-            New year edition top ux/ui design.New year edition top ux/ui
-            design.New year edition top ux/ui design
-          </h3>
-        </a>
-        <p>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima esse
-          deleniti at harum officiis dolorem aspernatur repellendus ad, corporis
-          suscipit?
-        </p>
-      </div>
-      <div class="card_footer">
-        <div class="left-f">
-          <span>1 Aug | 7 min read</span>
-        </div>
-        <div class="right-f">
-          <i class="fa-solid fa-thumbs-up"></i>
-          <i class="fa-solid fa-comment"></i>
-          <i class="fa-solid fa-share-nodes"></i>
-        </div>
-      </div>
-    </div>
-    <div class="card">
-      <img src="./images/t.jpg" alt="" />
-      <div class="card_content">
-        <span class="author">Mohammad Sohan</span>
-        <a href="">
-          <h3>
-            New year edition top ux/ui design.New year edition top ux/ui
-            design.New year edition top ux/ui design
-          </h3>
-        </a>
-        <p>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima esse
-          deleniti at harum officiis dolorem aspernatur repellendus ad, corporis
-          suscipit?
-        </p>
-      </div>
-      <div class="card_footer">
-        <div class="left-f">
-          <span>1 Aug | 7 min read</span>
-        </div>
-        <div class="right-f">
-          <i class="fa-solid fa-thumbs-up"></i>
-          <i class="fa-solid fa-comment"></i>
-          <i class="fa-solid fa-share-nodes"></i>
-        </div>
+
+        <span class="btn-about">Read More</span>
+
+        <!-- <button class="btn-about">Learn More</button> -->
       </div>
     </div>
   </div>

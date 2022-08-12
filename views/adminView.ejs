@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Our || BLOG</title>
+
+    <!-- CUSTOM CSS -->
+    <link rel="stylesheet" href="../css/style.css" />
+    <!-- CUSTOM CSS -->
+    <!-- SCOUT ICONS LINK -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
+    <!-- SCOUT ICONS LINK END -->
+</head>
+
+<body>
+    <header class="header">
+        <h2>ADMIN <span>DASHBOARD</span></h2>
+        <nav class="navbar">
+            <ul class="navbar_list">
+                <li><a href="/">Home</a></li>
+                <li><a href="/blog">Write Blog</a></li>
+                <% if(viewUser){ %>
+                    <li><a href="/auth/logout"><i class="uil uil-signout"></i></a></li>
+                    <% } else{ %>
+                        <i class="profile uil uil-user-circle"></i>
+                        <% } %>
+                            <li>
+                                <a href="/user/profile">
+                                </a>
+                            </li>
+            </ul>
+        </nav>
+        <div class="mobile_nav_btns">
+            <i class="uil uil-bars mobile_nav_icons"></i>
+            <i class="uil uil-times mobile_nav_icons"></i>
+        </div>
+        </div>
+    </header>
+
+
+
+    <section class="profile-section">
+        <div class="profile-container container ">
+            <div class="block-1">
+                <div class="left">
+                    <img src="/userImages/<%-viewUser.image %>" alt="">
+                    <span>
+                        <%-viewUser.username %>
+                    </span>
+                </div>
+            </div>
+            <div class="block-2">
+                <div class="right">
+                    <h1>ABOUT</h1>
+                    <form action="/user/update/<%-viewUser.id%>" method="POST" enctype="multipart/form-data">
+                        <div class="profile-about-container">
+                            <span>Full Name</span>
+                            <input type="text" name="username" placeholder="Full Name" value="<%-viewUser.username %>">
+                        </div>
+                        <div class="profile-about-container">
+                            <span>Email</span>
+                            <input type="text" name="email" placeholder="Email" value="<%-viewUser.email %>">
+                        </div>
+                       
+                        <button class="profile-btn">Update</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+    <script src="../../JS/app.js"></script>
+</body>
+
+</html>

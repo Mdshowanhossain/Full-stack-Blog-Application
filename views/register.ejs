@@ -1,41 +1,68 @@
 <%- include('./layout/Navbar.ejs') %>
 
-<div class="registration_contaienr">
-  <div class="form_container">
+<section class="registration">
+  <div class="form-fields-container container">
     <form action="/auth/register" method="POST" enctype="multipart/form-data">
-      <div class="input_name">
-        <input type="text" name="username" placeholder="Username" />
+      <div class="input-field password">
+        <input
+          type="text"
+          name="username"
+          placeholder="Username"
+          required="true"
+        />
+        <i class="uil uil-user email-icons"></i>
       </div>
-      <div class="email">
-        <input type="email" name="email" placeholder="Email" id="" />
+
+      <div class="input-field password">
+        <input
+          type="text"
+          name="email"
+          placeholder="Email"
+          id="email"
+          required="true"
+        />
+        <i class="uil uil-envelope-alt email-icon"></i>
       </div>
-      <div class="password">
-        <input type="password" name="password" placeholder="Password" id="" />
+
+      <div class="input-field password">
+        <input
+          type="password"
+          name="password"
+          placeholder="Password"
+          id=""
+          required="true"
+        />
+        <i class="uil uil uil-lock email-icons"></i>
       </div>
-      <div class="cPassword">
+      <div class="input-field password">
         <input
           type="password"
           name="cPassword"
           placeholder="Confirm Password"
           id=""
+          required="true"
         />
+        <i class="uil uil uil-lock email-icons"></i>
       </div>
-      <div class="file">
-        <label for="image">Upload image</label>
-        <input type="file" name="image" id="" />
+      <div class="reg-images">
+        <label for="image">Upload Image</label>
+        <input type="file" name="image" id="" required="true" />
       </div>
-      <span class="already_account"
-        >Already have an account?
+      <div class="not-register">
+        <span>
+          Already have an account?
+          <a href="/login"> Sign in </a>
+        </span>
+      </div>
+      <div>
+        <button>
+          Registration now
 
-        <a href="/login">
-          <small> sign in </small>
-        </a>
-      </span>
-      <button class="submit_btn" type="submit">
-        Register Now
-        <i class="fa-solid fa-arrow-right"></i>
-      </button>
+          <i class="uil uil-arrow-right"></i>
+        </button>
+      </div>
     </form>
   </div>
-</div>
+</section>
+
 <%- include('./layout/footer.ejs') %>

@@ -24,10 +24,13 @@ const UserSchema = new mongoose.Schema(
       type: String,
       default: "",
     },
-    token: {
+    status: {
       type: String,
-      default: "",
+      enum: ["user", "admin"],
+      default: "user",
+      // required: true,
     },
+    blogs: [{ type: mongoose.Types.ObjectId, ref: "Blog" }],
   },
   {
     timestamps: true,

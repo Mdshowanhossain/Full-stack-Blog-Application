@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Our || BLOG</title>
+
+    <!-- CUSTOM CSS -->
+    <link rel="stylesheet" href="../css/style.css" />
+    <!-- CUSTOM CSS -->
+    <!-- SCOUT ICONS LINK -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
+    <!-- SCOUT ICONS LINK END -->
+</head>
+
+<body>
+    <header class="header">
+        <h2>ADMIN <span>DASHBOARD</span></h2>
+        <nav class="navbar">
+            <ul class="navbar_list">
+                <li><a href="/">Home</a></li>
+                <li><a href="/blog">Write Blog</a></li>
+                <% if(findAdmin){ %>
+                    <li><a href="/auth/logout"><i class="uil uil-signout"></i></a></li>
+                    <% } else{ %>
+                        <i class="profile uil uil-user-circle"></i>
+                        <% } %>
+                            <li>
+                                <a href="/user/profile">
+                                </a>
+                            </li>
+            </ul>
+        </nav>
+        <div class="mobile_nav_btns">
+            <i class="uil uil-bars mobile_nav_icons"></i>
+            <i class="uil uil-times mobile_nav_icons"></i>
+        </div>
+        </div>
+    </header>
+
+
+
+    <section class="profile-section">
+        <div class="profile-container container ">
+            <div class="block-1">
+                <div class="left">
+                    <img src="/userImages/<%-findAdmin.image %>" alt="">
+                    <span>
+                        <%-findAdmin.username %>
+                    </span>
+                </div>
+            </div>
+            <div class="block-2">
+                <div class="right">
+                    <h1>ABOUT</h1>
+                    <form action="/user/update/<%-findAdmin.id%>" method="POST" enctype="multipart/form-data">
+                        <div class="profile-about-container">
+                            <span>Full Name</span>
+                            <input type="text" name="username" placeholder="Full Name" value="<%-findAdmin.username %>">
+                        </div>
+                        <div class="profile-about-container">
+                            <span>Email</span>
+                            <input type="text" name="email" placeholder="Email" value="<%-findAdmin.email %>">
+                        </div>
+                        <div class="profile-about-container">
+                            <span>Password</span>
+                            <input type="password" name="password" placeholder="Password">
+                        </div>
+                        <div class="profile-about-container">
+                            <span>Confirm Password</span>
+                            <input type="password" name="cPassword" placeholder="Confirm Password">
+                        </div>
+                        <div class="profile-about-container">
+                            <span>Profile Photo</span>
+                            <input type="file" name="image" id="" required="true">
+                        </div>
+                        <button class="profile-btn">Update</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+    <section class="admin-section">
+
+        <div class="container admin-container">
+            <h1>
+                User
+                <span>
+                    Management
+                </span>
+            </h1>
+
+            <div class="user-managment-wrapper">
+
+                <% findUser.forEach((user,index)=> { %>
+                    <div class="user-management flex items-center">
+                        <img src="./images/about.jpg" alt="">
+                        <span class="div-1">
+                            <%-user.username%>
+                        </span>
+                        <span class="div-2">
+                            <%-user.email%>
+                        </span>
+                        <a href="/user/adminview/<%- user.id%>">
+                            <i class="uil uil-edit"></i>
+                        </a>
+                        <i class="uil uil-trash-alt"></i>
+                        <i class="uil uil-eye"></i>
+                    </div>
+                    <% }) %>
+
+
+            </div>
+        </div>
+    </section>
+
+    <section class="admin-section">
+
+        <div class="container admin-container">
+            <h1>
+                Post
+                <span>
+                    Management
+                </span>
+            </h1>
+
+            <div class="user-managment-wrapper">
+                <% findPost.forEach((post,index)=> { %>
+                    <div class="user-management flex items-center">
+                        <img src="/blogImages/<%-post.image %>" alt="">
+                        <div class="div-1">
+                            <%-post.title%>
+                        </div>
+                        <div class="div-2">
+                            <%-post.description%>
+                        </div>
+                        <a href="/blog/edit/<%- post.id%>">
+                            <i class="uil uil-edit"></i>
+                        </a>
+                        <a href="/blog/delete/<%- post.id%>">
+                            <i class="uil uil-trash-alt"></i>
+                        </a>
+                        <a href="/blog/<%- post.id%>">
+                            <i class="uil uil-eye"></i>
+                        </a>
+                    </div>
+                <% }) %>
+            </div>
+        </div>
+    </section>
+
+    <script src="../../JS/app.js"></script>
+</body>
+
+</html>

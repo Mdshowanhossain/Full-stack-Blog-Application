@@ -1,58 +1,45 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Our || BLOG</title>
-    <!-- FONTAWESOME LINK -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
-      integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <!-- FONTAWESOME LINK -->
+<%- include('./layout/Navbar.ejs') %>
 
-    <!-- CUSTOM CSS -->
-    <link rel="stylesheet" href="./style.css" />
-    <!-- CUSTOM CSS -->
-  </head>
-  <body>
-    <div class="post_blog_container">
-      <div class="post_blog">
-        <form action="/api/post" method="POST">
-          <div class="title">
-            <label for="title">Title</label>
-            <input type="text" name="title" placeholder="Title" id="" />
-          </div>
-          <div class="description">
-            <label for="description">Description</label>
-            <textarea
-              type="text"
-              name="description"
-              placeholder="Description"
-              id=""
-              cols="0"
-              rows="10"
-            >
-            </textarea>
-          </div>
-          <div class="file">
-            <label for="image">Upload image</label>
-            <input type="file" name="image" id="" />
-          </div>
-          <div>
-            <button class="post_blog_btn" type="submit">
-              Post
-              <i class="fa-brands fa-usps"></i>
-            </button>
-
-            <!-- <input value="Post" /> -->
-          </div>
-        </form>
+<section class="registration">
+  <div class="form-fields-container container">
+    <form action="/blog/post" method="POST" enctype="multipart/form-data">
+      <div class="post-blog">
+        <div class="title">
+          <label for="title">Title</label>
+          <input
+            type="text"
+            name="title"
+            placeholder="Title"
+            id=""
+            required="true"
+          />
+        </div>
+        <div class="description">
+          <label for="description">Description</label>
+          <textarea
+            type="text"
+            name="description"
+            placeholder="Description"
+            id=""
+            cols="0"
+            rows="10"
+            required="true"
+          >
+          </textarea>
+        </div>
       </div>
-    </div>
-  </body>
-</html>
+      <div class="post-images">
+        <label for="image">Upload image</label>
+        <input type="file" name="image" id="" required="true" />
+      </div>
+      <div>
+        <button>
+          Post now
+          <i class="uil uil-arrow-right"></i>
+        </button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<%- include('./layout/footer.ejs') %>

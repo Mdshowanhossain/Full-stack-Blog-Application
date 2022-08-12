@@ -1,55 +1,590 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Our || BLOG</title>
-    <!-- FONTAWESOME LINK -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
-      integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <!-- FONTAWESOME LINK -->
 
-    <!-- CUSTOM CSS -->
-    <link rel="stylesheet" href="./style.css" />
-    <!-- CUSTOM CSS -->
-  </head>
-  <body>
-    <!--SHOW BLOG PART -->
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our || BLOG</title>
 
-    <div class="post_blog_container">
-      <div class="post_blog">
-        <form action="">
+  <!-- CUSTOM CSS -->
+  <link rel="stylesheet" href="../css/style.css" />
+  <!-- CUSTOM CSS -->
+  <!-- SCOUT ICONS LINK -->
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
+  <!-- SCOUT ICONS LINK END -->
+
+
+<style>
+
+@import url("https://fonts.googleapis.com/css2?family=Inspiration&family=Oleo+Script+Swash+Caps:wght@400;700&family=Roboto+Mono:wght@300;400&family=Uchen&display=swap");
+
+:root {
+  --inspiration: "Inspiration", cursive;
+  --oleo: "Oleo Script Swash Caps", cursive;
+  --roboto: "Roboto Mono", monospac;
+  --ucins: "Uchen", serif;
+  --primary: #ff3c3c;
+  --dark: #121212;
+  --pure: #ffffff;
+  --ternary: #898989;
+  --light: #f2f2f2;
+  --gray: #1d1d1d1d;
+  --maild: #b9b8b8;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden;
+  font-family: "Montserrat", sans-serif;
+  height: 100vh;
+}
+
+.header {
+  padding: 0rem 12rem;
+  height: 6rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header h2 {
+  font-size: 2.5rem;
+  font-family: var(--oleo);
+}
+.header h2 span {
+  color: var(--primary);
+  font-size: 1.2rem;
+  font-family: var(--oleo);
+}
+.navbar_list {
+  display: flex;
+  gap: 1.8rem;
+  /* font-family: var(--ucins); */
+  font-weight: 400;
+  transition: all 0.4s ease-in-out;
+  list-style: none;
+}
+.navbar_list li a {
+  font-size: 1.2rem;
+  color: inherit;
+
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+.navbar_list li:hover {
+  color: var(--primary);
+}
+.profile {
+  font-size: 1.3rem;
+}
+.mobile_nav_btns {
+  display: none;
+  background: transparent;
+  cursor: pointer;
+}
+.mobile_nav_icons {
+  font-size: 3rem;
+}
+.uil-times {
+  display: none;
+}
+section {
+  padding: 2.5rem 0;
+}
+
+/* REGISTRATION AND LOGIN PART DESIGN */
+
+.registration {
+  background-color: var(--light);
+  height: 100vh;
+}
+.reg-card {
+}
+.form-fields-container form {
+  width: 40rem;
+  margin: 0 auto;
+  margin-top: 2rem;
+  padding: 4rem 2rem;
+  border-radius: 0.3rem;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  background-color: var(--pure);
+}
+.input-field {
+  position: relative;
+  height: 40px;
+  border-radius: 0.2rem;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+.input-field + .password {
+  margin: 2rem 0rem 0rem 0rem;
+}
+.input-field input {
+  height: 100%;
+  width: 100%;
+  border: none;
+  outline: none;
+  border-radius: 0.3rem;
+  padding: 0rem 1rem;
+}
+.input-field input::placeholder {
+  color: #b9b8b8;
+}
+
+.input-field .email-icon,
+.email-icons {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #b9b8b8;
+}
+
+.form-fields-container .not-register {
+  color: var(--ternary);
+  font-size: 0.6rem;
+  margin: 1rem 0;
+}
+
+.form-fields-container .not-register span {
+  letter-spacing: 0.1px;
+  color: #b9b8b8;
+}
+.form-fields-container .not-register span a {
+  color: var(--dark);
+}
+.form-fields-container button {
+  padding: 0.6rem 2.5rem;
+  border: 2px solid var(--light);
+  border-radius: 0.3rem;
+  cursor: pointer;
+  font-family: var(--oleo);
+  letter-spacing: 0.1rem;
+  color: #b9b8b8;
+  font-weight: 400;
+  background: transparent;
+}
+.userimage {
+  padding: 2rem 0 0 0;
+}
+/* REGISTRATION AND LOGIN PART DESIGN */
+
+/* POST BLOG PART*/
+.title,
+.description {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.8rem;
+  color: #b9b8b8;
+}
+
+.title input::placeholder,
+.description textarea::placeholder {
+  color: var(--maild);
+}
+
+.title input,
+.description textarea {
+  outline: 0;
+  padding: 0.8rem 0.3rem;
+  border-radius: 0.2rem;
+  border: 1px solid var(--maild);
+}
+
+.description label,
+.title label {
+  margin: 0.9;
+  padding: 1rem 0 0.5rem 0;
+}
+.title input:focus,
+.description textarea:focus {
+  outline: 0;
+}
+.post-images input {
+  padding: 1.4rem 0;
+  cursor: pointer;
+}
+.post-images {
+  font-size: 0.8rem;
+  color: var(--maild);
+}
+
+.reg-images {
+  font-size: 0.8rem;
+  color: var(--maild);
+  padding: 1rem 0 0.8rem 0;
+}
+
+/* POST BLOG PART*/
+.readblog img {
+  width: 100%;
+  height: 80vh;
+  background-size: cover;
+  border-radius: 0.4rem;
+}
+.readblog-content {
+  margin: 2rem 4rem 0rem 4rem;
+}
+
+.readblog-content h1 {
+  font-size: 2rem;
+  line-height: 3rem;
+}
+.readblog-content-img {
+  margin: 1rem 0;
+}
+.readblog-content-img img {
+  width: 2.5rem;
+  height: 2.5rem;
+  background-size: cover;
+  border-radius: 50%;
+  margin-right: 1rem;
+}
+
+.readblog-content-img span {
+  font-size: 0.8rem;
+  color: var(--maild);
+  letter-spacing: 0.1rem;
+}
+.readblog-content p {
+  font-size: 0.9rem;
+  line-height: 1.5rem;
+  letter-spacing: 0.1rem;
+}
+.profile-container {
+  display: flex;
+  gap: 2rem;
+}
+.profile-container .left {
+  background: var(--light);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  height: 60vh;
+  text-align: center;
+}
+.profile-container .left span {
+  color: var(--primary);
+  font-family: var(--roboto);
+  letter-spacing: 0.2rem;
+}
+
+.profile-container .left img {
+  width: 100%;
+  border-radius: 0.3rem;
+  margin-bottom: 1.7rem;
+  object-fit: cover;
+}
+.block-1 {
+  flex: 5;
+}
+.profile-container .block-2 .right {
+}
+.profile-container .block-2 {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  flex: 7;
+}
+.profile-about-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  margin: 2rem 0;
+}
+.profile-container .block-2 .right {
+  background-color: var(--light);
+  border-radius: 0.5rem;
+  height: 60vh;
+  padding: 1rem;
+}
+.block-2 .right h1 {
+  color: var(--primary);
+  font-size: 2rem;
+  letter-spacing: 0.3rem;
+  font-family: var(--oleo);
+  margin-bottom: 2rem;
+}
+.profile-about-container span {
+  font-size: 0.8rem;
+}
+
+.profile-about-container input {
+  width: 70%;
+  padding: 0.6rem 0.5rem;
+  border: var(--maild);
+  border-radius: 0.3rem;
+}
+.profile-about-container input:focus {
+  outline: 0;
+}
+.profile-about-container input::placeholder {
+  color: var(--maild);
+}
+
+.bottom {
+  margin-top: 3rem;
+  padding: 1rem 0;
+  background-color: var(--light);
+  height: 100vh;
+  border-radius: 0.4rem;
+}
+.bottom h1 {
+  text-align: center;
+  margin: 1rem 0;
+  letter-spacing: 0.2rem;
+  font-family: var(--oleo);
+  color: var(--primary);
+}
+.profile-container .profile-btn {
+  border: 1px solid var(--primary);
+  color: var(--primary);
+  padding: 1rem 2.5rem;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  float: right;
+}
+footer {
+  background-color: #121212;
+  color: var(--pure);
+  text-align: center;
+  padding-top: 4rem;
+  padding-bottom: 1rem;
+  font-size: 0.5rem;
+  font-family: var(--oleo);
+  letter-spacing: 0.2rem;
+  margin: 5rem 0rem;
+}
+footer .content span {
+  color: var(--primary);
+}
+
+.profile-user-data {
+  padding: 0 3rem;
+  padding-top: 2rem;
+}
+
+.table {
+  width: 100%;
+  border: 1px solid #eeeeee;
+}
+
+.table-header {
+  display: flex;
+  width: 100%;
+  background: var(--light);
+  padding: 18px 0;
+}
+
+.table-row {
+  display: flex;
+  width: 100%;
+  padding: 18px 0;
+  align-items: center;
+  justify-content: center;
+}
+.table-row:nth-of-type(odd) {
+  background: var(--pure);
+  border-radius: 0.2rem;
+}
+.sad-alert {
+  text-align: center;
+}
+.sad-alert i {
+  font-size: 8rem;
+  color: var(--primary);
+}
+.sad-alert h1 {
+  font-size: 2rem;
+}
+.table-data,
+.header__item {
+  flex: 1 1 20%;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.table-data img {
+  width: 5rem;
+  border-radius: 0.2rem;
+}
+
+.uil-eye,
+.uil-trash-alt,
+.uil-edit {
+  color: var(--ternary);
+  transition: all 0.4s ease;
+}
+.uil-eye:hover,
+.uil-edit:hover {
+  color: blue;
+}
+.uil-trash-alt:hover {
+  color: var(--primary);
+}
+
+.t-icons {
+  margin: 0 1.5rem;
+  color: var(--ternary);
+  font-size: 1.2rem;
+  transition: all 0.4s ease;
+}
+
+/* .t-icons + a {
+  color: var(--primary);
+  font-size: 1.2rem;
+  transition: all 0.4s ease;
+}
+.t-icons + a:hover {
+  color: var(--ternary);
+} */
+
+.header__item {
+  text-transform: uppercase;
+}
+
+.filter__link {
+  color: var(--primary);
+  text-decoration: none;
+  position: relative;
+  display: inline-block;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+.filter__link::after {
+  content: "";
+  position: absolute;
+  right: -18px;
+  color: var(--primary);
+  font-size: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* <=========> */
+
+.forget-pass {
+  margin-top: 2rem;
+}
+
+@media (max-width: 62em) {
+  .mobile_nav_btns {
+    display: block;
+    z-index: 999;
+    color: #212529;
+  }
+  .header {
+    position: relative;
+    padding: 0rem 6rem;
+  }
+  .navbar {
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateX(100%);
+    transition: all 0.5s linear;
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+    background-color: var(--background-bg-4);
+  }
+  .navbar_list {
+    flex-direction: column;
+    align-items: center;
+    /* color: white; */
+  }
+  .active .navbar {
+    transform: translateX(0);
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+  .active .mobile_nav_btns .mobile_nav_icons.uil-times {
+    display: block;
+  }
+  .active .mobile_nav_btns .mobile_nav_icons.uil-bars {
+    display: none;
+  }
+}
+@media (max-width: 35em) {
+  .header {
+    padding: 0rem 2rem;
+  }
+}
+
+</style>
+
+</head>
+
+<body>
+  <header class="header">
+    <h2>Blog <span>App</span></h2>
+    <nav class="navbar">
+      <ul class="navbar_list">
+        <li><a href="/">Home</a></li>
+        <li><a href="/blog">Write Blog</a></li>
+        <li><a href="/login"><i class="profile uil uil-signin"></i></a></li>
+        <li><a href="/user/profile">
+            <i class="profile uil uil-user-circle"></i>
+          </a></li>
+      </ul>
+    </nav>
+    <div class="mobile_nav_btns">
+      <i class="uil uil-bars mobile_nav_icons"></i>
+      <i class="uil uil-times mobile_nav_icons"></i>
+    </div>
+    </div>
+  </header>
+
+  <section class="registration">
+    <div class="form-fields-container container">
+      <form action="/blog/update/<%-findPost.id%>" method="POST" enctype="multipart/form-data">
+        <div class="post-blog">
           <div class="title">
             <label for="title">Title</label>
-            <input type="text" name="title" placeholder="Title" id="" />
+            <input type="text" name="title" placeholder="Title" id="" value="<%-findPost.title%>" required="true"/>
           </div>
           <div class="description">
             <label for="description">Description</label>
-            <textarea
-              type="text"
-              name="description"
-              placeholder="Description"
-              id=""
-              cols="30"
-              rows="10"
-            >
-            </textarea>
+            <textarea type="text" name="description" placeholder="Description" id="" cols="0" rows="10" required="true">
+              <%-findPost.description%>
+          </textarea>
           </div>
-
-          <div>
-            <button class="post_blog_btn" type="submit">
-              Edit
-              <i class="fa-solid fa-pen-to-square"></i>
-            </button>
-          </div>
-        </form>
-      </div>
+        </div>
+        <div class="post-images">
+          <label for="image">Upload image</label>
+          <input type="file" name="image" id="" required="true"/>
+        </div>
+        <div>
+          <button>
+            Post now
+            <i class="uil uil-arrow-right"></i>
+          </button>
+        </div>
+      </form>
     </div>
-  </body>
+  </section>
+
+
+
+  <footer>
+    <div class="content">
+      <h3>All rights reserved by <span>
+          @Mohammad Sohan Hossain
+        </span></h3>
+    </div>
+  </footer>
+  <script src="../../JS/app.js"></script>
+</body>
+
 </html>

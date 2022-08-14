@@ -40,9 +40,7 @@ const Registration = async (req, res) => {
     await user.save();
     res.status(200).redirect("/login");
   } catch (err) {
-    return res
-      .status(500)
-      .send({ success: false, message: err.message, Mamun: "help sohan" });
+    return res.status(500).send({ success: false, message: err.message });
   }
 };
 

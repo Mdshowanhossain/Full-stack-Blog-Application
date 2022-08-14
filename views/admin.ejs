@@ -5,7 +5,9 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Our || BLOG</title>
+    <title>
+        <%-title%>
+    </title>
 
     <!-- CUSTOM CSS -->
     <link rel="stylesheet" href="../css/style.css" />
@@ -97,7 +99,7 @@
 
                 <% findUser.forEach((user,index)=> { %>
                     <div class="user-management flex items-center">
-                        <img src= "/userImages/<%-user.image%>" alt="">
+                        <img src="/userImages/<%-user.image%>" alt="">
                         <span class="div-1">
                             <%-user.username%>
                         </span>
@@ -116,8 +118,6 @@
                         </a>
                     </div>
                     <% }) %>
-
-
             </div>
         </div>
     </section>
@@ -132,28 +132,39 @@
                 </span>
             </h1>
 
-            <div class="user-managment-wrapper">
-                <% findPost.forEach((post,index)=> { %>
-                    <div class="user-management flex items-center">
-                        <img src="/blogImages/<%-post.image %>" alt="">
-                        <div class="div-1">
-                            <%-post.title%>
+            <% if(findPost.length > 0){ %>
+                <div class="user-managment-wrapper">
+                    <% findPost.forEach((post,index)=> { %>
+                        <div class="user-management flex items-center">
+                            <img src="/blogImages/<%-post.image %>" alt="">
+                            <div class="div-1">
+                                <%-post.title%>
+                            </div>
+                            <div class="div-2">
+                                <%-post.description%>
+                            </div>
+                            <a href="/blog/edit/<%- post.id%>">
+                                <i class="uil uil-edit"></i>
+                            </a>
+                            <a href="/blog/delete/<%- post.id%>">
+                                <i class="uil uil-trash-alt"></i>
+                            </a>
+                            <a href="/blog/<%- post.id%>">
+                                <i class="uil uil-eye"></i>
+                            </a>
                         </div>
-                        <div class="div-2">
-                            <%-post.description%>
-                        </div>
-                        <a href="/blog/edit/<%- post.id%>">
-                            <i class="uil uil-edit"></i>
-                        </a>
-                        <a href="/blog/delete/<%- post.id%>">
-                            <i class="uil uil-trash-alt"></i>
-                        </a>
-                        <a href="/blog/<%- post.id%>">
-                            <i class="uil uil-eye"></i>
-                        </a>
+                        <% }) %>
+                </div>
+
+            <% } else { %>
+                    <div class="sad-alert">
+                        <i class="uil uil-frown"></i>
+                        <h1>No Post To View</h1>
                     </div>
-                    <% }) %>
-            </div>
+            <% } %>
+
+
+
         </div>
     </section>
 

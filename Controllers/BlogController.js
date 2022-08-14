@@ -41,8 +41,7 @@ const ReadPost = async (req, res) => {
   try {
     const { id } = req.params;
     const findPost = await PostModel.findById(id).populate("user");
-    // console.log(findPost);
-    res.render("readmore", { findPost });
+    res.render("readmore", { findPost, title: "READ || BLOG" });
   } catch (err) {
     res.status(500).send({ success: false, message: err.message });
   }
@@ -72,7 +71,7 @@ const Delete = async (req, res) => {
 const EditPost = async (req, res) => {
   try {
     const findPost = await PostModel.findById(req.params.id);
-    res.status(200).render("editblog", { findPost });
+    res.status(200).render("editblog", { findPost, title: "EDIT || BLOG" });
   } catch (err) {
     res.status(500).send({ success: false, message: err.message });
   }

@@ -22,7 +22,6 @@ const updateUserByAdmin = async (req, res) => {
 const deleteUserByAdmin = async (req, res) => {
   try {
     const user = await UserModle.findById(req.params.id);
-    // console.log({ user: user.id });
     await PostModle.deleteMany({ user: user.id });
     await UserModle.findByIdAndDelete(req.params.id);
     res.status(200).redirect("/user/profile");
@@ -33,7 +32,7 @@ const deleteUserByAdmin = async (req, res) => {
 const viewUserByAdmin = async (req, res) => {
   try {
     const viewUser = await UserModle.findById(req.params.id);
-    res.render("adminView", { viewUser });
+    res.render("adminView", { viewUser, title: "ADMIN || VIEW" });
     if (!viewUser)
       return res.send(404).send({ success: false, message: "No post found!" });
   } catch (err) {

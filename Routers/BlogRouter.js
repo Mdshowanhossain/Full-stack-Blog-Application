@@ -36,7 +36,7 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 BlogRouter.get("/", ChckLogIn, (req, res) => {
-  res.render("postblog");
+  res.render("postblog", { title: "WRITE || BLOG" });
 });
 BlogRouter.post("/post", ChckLogIn, upload.single("image"), PostBlog);
 BlogRouter.get("/:id", ReadPost);

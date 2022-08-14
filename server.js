@@ -31,7 +31,7 @@ require("./Database/Database");
 app.get("/", async (req, res) => {
   try {
     const getAllPost = await PostModel.find().populate("user");
-    res.render("index", { getAllPost });
+    res.render("index", { title: "BLOG || APP", getAllPost });
   } catch (err) {
     res.status(500).send({ success: false, message: err.message });
   }

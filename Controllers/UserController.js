@@ -10,10 +10,15 @@ const seeProfile = async (req, res) => {
       const findUser = await UserModle.find().populate("blogs");
       const findPost = await PostModle.find().populate("user");
 
-      return res.render("admin", { findAdmin, findUser, findPost });
+      return res.render("admin", {
+        findAdmin,
+        findUser,
+        findPost,
+        title: "ADMIN || PROFILE",
+      });
     } else if (req.status === "user") {
       const findUser = await UserModle.findById(req.id).populate("blogs");
-      res.render("profile", { findUser });
+      res.render("profile", { findUser, title: "USER || PROFILE" });
     }
   } catch (err) {
     res.status(500).send({ success: false, message: err.message });
@@ -49,18 +54,7 @@ const updateUser = async (req, res) => {
   }
 };
 
-// const updateUserByAdmin = async (req, res) => {};
-// const deleteUserByAdmin = async (req, res) => {};
-// const viewUserByAdmin = async (req, res) => {
-//   const viewUser = await UserModle.findById(req.params.id);
-//   console.log(viewUser);
-//   res.render("adminView", { viewUser });
-// };
-
 module.exports = {
   updateUser,
   seeProfile,
-  // updateUserByAdmin,
-  // deleteUserByAdmin,
-  // viewUserByAdmin,
 };

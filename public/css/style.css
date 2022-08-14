@@ -300,6 +300,10 @@ body {
   text-overflow: ellipsis;
   font-family: var(--roboto);
 }
+.content {
+  /* margin: 1rem 0; */
+  margin-top: 1rem;
+}
 
 .blog-card .blog-content .content .blog-user-img {
   width: 1.5rem;

@@ -4,8 +4,6 @@ const UserModel = require("../Models/UserModel");
 
 const chckLogIn = async (req, res, next) => {
   try {
-    // console.log(req.headers.cookie);
-    // console.log(req.header.authorization);
     if (req.headers.authorization) {
       const { authorization } = req.headers;
       const token = authorization?.split(" ")[1];
@@ -14,9 +12,9 @@ const chckLogIn = async (req, res, next) => {
 
     const decoded = await jwt.verify(token, process.env.SECRET_KEY);
 
-    // if (!decoded) {
-    //   return res.status(403).redirect("/login");
-    // }
+    if (!decoded) {
+      return res.status(403).redirect("/login");
+    }
 
     const { username, id, status } = decoded;
 
@@ -28,7 +26,6 @@ const chckLogIn = async (req, res, next) => {
     next();
   } catch (err) {
     res.status(500).redirect("/login");
-    // res.send(err.message);
   }
 };
 module.exports = chckLogIn;

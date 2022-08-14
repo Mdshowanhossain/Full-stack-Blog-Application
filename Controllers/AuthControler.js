@@ -63,7 +63,6 @@ const Login = async (req, res) => {
       process.env.SECRET_KEY,
       { expiresIn: "1h" }
     );
-    console.log(jwtToken);
 
     res.cookie("jwt", jwtToken, {
       expires: new Date(Date.now() + 3000000),
@@ -144,22 +143,28 @@ const resetPassword = async (req, res) => {
 
   await jwt.verify(token, secret, { expiresIn: "15min" });
 
-  res.render(
-    "resetpassword",
-    {
-      email: findUser.email,
-      id: findUser.id,
-      token: token,
-    },
-    { title: "USER || RESET PASSWORD LINK" }
-  );
+  res.render("resetpassword", {
+    title: "USER || RESET PASSWORD LINK",
+    id: findUser.id,
+    token: token,
+    email: findUser.email,
+  });
+
+  // res.render(
+  //   "resetpassword",
+  //   { title: "USER || RESET PASSWORD LINK" },
+  //   {
+  //     email: findUser.email,
+  //     id: findUser.id,
+  //     token: token,
+  //   }
+  // );
 };
 
 const resetPasswordUpdate = async (req, res) => {
   try {
     const { id, token } = req.params;
     const findUser = await UserModel.findOne({ id: id });
-
     if (!findUser) {
       return res
         .status(403)

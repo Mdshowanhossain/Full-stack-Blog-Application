@@ -31,7 +31,6 @@ require("./Database/Database");
 app.get("/", async (req, res) => {
   try {
     const getAllPost = await PostModel.find().populate("user");
-    // console.log(getAllPost);
     res.render("index", { getAllPost });
   } catch (err) {
     res.status(500).send({ success: false, message: err.message });
@@ -39,17 +38,17 @@ app.get("/", async (req, res) => {
 });
 
 app.get("/register", (req, res) => {
-  res.render("register");
+  res.render("register", { title: "USER || REGISTRATION" });
 });
 
 app.get("/login", (req, res) => {
-  res.render("login");
+  res.render("login", { title: "USER || LOGIN" });
 });
 
 app.use("/auth", AuthRouter);
 app.use("/user", UserRouter);
 app.use("/blog", BlogRouter);
-app.use("/", AdminRouter);
+app.use("/adminview", AdminRouter);
 app.listen(PORT, () => {
   console.log(`server is runnign at ${PORT}`);
 });

@@ -144,11 +144,15 @@ const resetPassword = async (req, res) => {
 
   await jwt.verify(token, secret, { expiresIn: "15min" });
 
-  res.render("resetpassword", {
-    email: findUser.email,
-    id: findUser.id,
-    token: token,
-  });
+  res.render(
+    "resetpassword",
+    {
+      email: findUser.email,
+      id: findUser.id,
+      token: token,
+    },
+    { title: "USER || RESET PASSWORD LINK" }
+  );
 };
 
 const resetPasswordUpdate = async (req, res) => {

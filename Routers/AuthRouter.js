@@ -35,7 +35,7 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 AuthRouter.get("/forgetpassword", (req, res) => {
-  res.render("forgetpassword");
+  res.render("forgetpassword", { title: "USER || FORGET PASSWORD" });
 });
 
 AuthRouter.post("/register", upload.single("image"), Registration);

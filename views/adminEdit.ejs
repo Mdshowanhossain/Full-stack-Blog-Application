@@ -1,4 +1,21 @@
-@import url("./variable.css");
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our || BLOG</title>
+
+  <!-- CUSTOM CSS -->
+  <link rel="stylesheet" href="../css/style.css" />
+  <!-- CUSTOM CSS -->
+  <!-- SCOUT ICONS LINK -->
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
+  <!-- SCOUT ICONS LINK END -->
+
+
+<style>
 
 @import url("https://fonts.googleapis.com/css2?family=Inspiration&family=Oleo+Script+Swash+Caps:wght@400;700&family=Roboto+Mono:wght@300;400&family=Uchen&display=swap");
 
@@ -76,251 +93,8 @@ body {
 .uil-times {
   display: none;
 }
-
-.hero-section {
-}
-.blog-section {
-}
-.head-title {
-  text-align: center;
-  padding: 3rem 0rem 2rem 0rem;
-}
-.head-title h1 {
-  font-family: var(--oleo);
-  font-size: 2.5rem;
-  letter-spacing: 0.5rem;
-}
-.head-title h1 span {
-  color: var(--primary);
-}
-
-.hero {
-  padding: 4rem 0;
-}
-.hero-left h1 {
-  font-size: 2.6rem;
-}
-.hero-left p {
-  font-size: 0.8rem;
-  font-family: var(--roboto);
-  padding: 1rem 2rem 1rem 0;
-  line-height: 1.6rem;
-}
-.hero-left .btn-wrapper .btn-primary {
-  padding: 1rem 2rem;
-  border: 2px solid transparent;
-  border-radius: 0.2rem;
-  background-color: var(--dark);
-  color: var(--primary);
-  font-family: var(--oleo);
-  font-size: 1rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  margin-right: 1rem;
-}
-.hero-left .btn-wrapper .btn-secondary {
-  padding: 1rem 2rem;
-  border: 2px solid var(--dark);
-  border-radius: 0.2rem;
-  background-color: transparent;
-  color: var(--primary);
-  font-family: var(--oleo);
-  font-size: 1rem;
-  cursor: pointer;
-  margin-right: 3rem;
-  transition: all 0.3s ease;
-}
-.hero-left .btn-wrapper .btn-secondary:hover {
-  background-color: var(--dark);
-}
-
-.hero-left .btn-wrapper .btn-primary:hover {
-  border: 2px solid var(--dark);
-  background-color: transparent;
-}
-
-.hero .hero-right img {
-  width: 100%;
-  border-radius: 0.3rem;
-}
-
-.about-content {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 5rem;
-}
-
-.about {
-  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-    url("../images/gallery6.jpg");
-  padding: 7rem 0rem;
-  background-size: cover;
-  background-repeat: no-repeat;
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 80%, 0 100%);
-}
-.about-content {
-  color: var(--pure);
-}
-
-.about-content .left {
-}
-
-.about-content .right {
-}
-
-.about-content .left img {
-  width: 100%;
-  border-radius: 1.5rem;
-}
-
-.about-content h1 {
-  font-size: 2rem;
-  font-family: var(--oleo);
-}
-
-.about-content p {
-  font-size: 0.9rem;
-  font-family: var(--oleo);
-  line-height: 1.6rem;
-  margin: 1.4rem 0;
-}
-
-.btn-about {
-  background-color: transparent;
-  color: var(--pure);
-  font-family: var(--oleo);
-  font-size: 1rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  padding: 0.3rem 0rem;
-}
-
-.btn-about:hover {
-  border-bottom: 3px solid var(--primary);
-}
-
-.features_wrapper {
-}
-.feature_card {
-  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.4)),
-    url("../images/gallery3.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-.feature_card {
-  color: var(--light);
-  padding: 2.2rem;
-  border-radius: 0.2rem;
-  background-color: var(--ternary);
-}
-.feature_card span {
-  font-size: 0.5rem;
-  font-family: var(--oleo);
-  letter-spacing: 0.1rem;
-}
-
-.feature_card h3 {
-  font-size: 1rem;
-  padding: 1rem 0;
-  font-family: var(--ucins);
-  letter-spacing: 0.2rem;
-}
-.feature_card p {
-  font-size: 0.6rem;
-  line-height: 1rem;
-  margin-bottom: 1rem;
-  font-family: var(--ucins);
-  letter-spacing: 0.1rem;
-}
-.feature_card p + span {
-  cursor: pointer;
-  transition: all 0.4s ease;
-  color: var(--primary);
-}
-.feature_card p + span:hover {
-  border-bottom: 1px solid var(--primary);
-  padding-bottom: 0.6rem;
-  transform: translateX(-100);
-}
-
-.category span {
-  border: 1.5px solid var(--primary);
-  padding: 0.5rem 1rem;
-  margin-right: 1.5rem;
-  cursor: pointer;
-  font-family: var(--ucins);
-  letter-spacing: 0.1rem;
-  border-radius: 0.2rem;
-  transition: all 0.4s ease;
-}
-
-.category span:hover {
-  background-color: var(--primary);
-  border: 1.5px solid transparent;
-  color: var(--pure);
-}
-.blog-card-wrapper {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 2rem;
-}
-.blog-card {
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-  border-radius: 0.3rem;
-}
-
-.blog-card .blog-img {
-  /* width: 100%; */
-}
-.blog-card .blog-img img {
-  width: 100%;
-  height: 15rem;
-  object-fit: cover;
-  border-radius: 0.3rem 0rem 1rem 1rem;
-  text-align: center;
-}
-.blog-card .blog-content {
-  padding: 1rem 1rem;
-  white-space: wrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.blog-card .blog-content h1 {
-  font-size: 1rem;
-  margin: 1rem 0;
-  font-family: var(--ucins);
-}
-
-.blog-card .blog-content .blog-text-elipisis {
-  width: 17rem;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  font-family: var(--roboto);
-}
-
-.blog-card .blog-content .content .blog-user-img {
-  width: 1.5rem;
-  height: 1.5rem;
-  background-size: cover;
-  border-radius: 50%;
-}
-.blog-card .blog-content .content i {
-  font-size: 0.5rem;
-}
-.blog-card .blog-content .content span:nth-of-type(1) {
-  font-size: 0.5rem;
-  margin-left: 0.7rem;
-}
-.blog-card .blog-content .content span:nth-of-type(2) {
-  font-size: 0.5rem;
-  margin-left: 0.8rem;
-}
-.blog-card .blog-content .content span:nth-of-type(3) {
-  font-size: 0.5rem;
-  margin-left: 0.8rem;
+section {
+  padding: 2.5rem 0;
 }
 
 /* REGISTRATION AND LOGIN PART DESIGN */
@@ -525,7 +299,7 @@ body {
 .profile-container .block-2 .right {
   background-color: var(--light);
   border-radius: 0.5rem;
-  height: 70vh;
+  height: 60vh;
   padding: 1rem;
 }
 .block-2 .right h1 {
@@ -698,72 +472,6 @@ footer .content span {
   margin-top: 2rem;
 }
 
-.admin-section {
-  background-color: var(--light);
-}
-.admin-container {
-  background-color: var(--pure);
-  padding: 2rem 1rem;
-  border-radius: 0.4rem;
-}
-.admin-container h1 {
-  font-family: var(--oleo);
-  letter-spacing: 0.2rem;
-  font-size: 2rem;
-}
-.admin-container span {
-  color: var(--primary);
-}
-.user-managment-wrapper {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-column-gap: 2rem;
-}
-
-.user-management {
-  gap: 0.5rem;
-  padding: 3rem 0 0 0;
-}
-.user-management .div-1 {
-  width: 4rem;
-
-  color: var(--primary);
-  font-size: 0.8rem;
-  letter-spacing: 0.1rem;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.user-management .div-2 {
-  width: 4rem;
-  color: var(--maild);
-  font-size: 0.7rem;
-  letter-spacing: 0.1rem;
-  /* background-color: red; */
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.user-management i {
-  padding: 0.5rem;
-  border-radius: 0.3rem;
-  cursor: pointer;
-  transition: all 0.4s ease;
-}
-
-.user-management i:hover {
-  color: var(--pure);
-  background-color: var(--primary);
-}
-
-.user-management img {
-  width: 2rem;
-  height: 2rem;
-  border-radius: 50%;
-  border: 2px solid var(--primary);
-}
-
 @media (max-width: 62em) {
   .mobile_nav_btns {
     display: block;
@@ -813,3 +521,75 @@ footer .content span {
     padding: 0rem 2rem;
   }
 }
+
+</style>
+
+</head>
+
+<body>
+    <header class="header">
+        <h2>ADMIN <span>DASHBOARD</span></h2>
+        <nav class="navbar">
+            <ul class="navbar_list">
+                <li><a href="/">Home</a></li>
+                <li><a href="/blog">Write Blog</a></li>
+                <% if(findUser){ %>
+                    <li><a href="/auth/logout"><i class="uil uil-signout"></i></a></li>
+                    <% } else{ %>
+                        <i class="profile uil uil-user-circle"></i>
+                        <% } %>
+                            <li>
+                                <a href="/user/profile">
+                                </a>
+                            </li>
+            </ul>
+        </nav>
+        <div class="mobile_nav_btns">
+            <i class="uil uil-bars mobile_nav_icons"></i>
+            <i class="uil uil-times mobile_nav_icons"></i>
+        </div>
+        </div>
+    </header>
+
+  <section class="registration">
+    <div class="form-fields-container container">
+      <form action="/blog/update/<%-findUser.id%>" method="POST" enctype="multipart/form-data">
+        <div class="post-blog">
+          <div class="title">
+            <label for="title">Title</label>
+            <input type="text" name="title" placeholder="Title" id="" value="<%-findUser.title%>" required="true"/>
+          </div>
+          <div class="description">
+            <label for="description">Description</label>
+            <textarea type="text" name="description" placeholder="Description" id="" cols="0" rows="10" required="true">
+              <%-findUser.description%>
+          </textarea>
+          </div>
+        </div>
+        <div class="profile-about-container">
+            <span>Profile Photo</span>
+            <input type="file" name="image" id="" required="true">
+          </div>
+        <div>
+          <button>
+            Post now
+            <i class="uil uil-arrow-right"></i>
+          </button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+
+
+  <footer>
+    <div class="content">
+      <h3>All rights reserved by <span>
+          @Mohammad Sohan Hossain
+        </span></h3>
+    </div>
+  </footer>
+  <script src="../../JS/app.js"></script>
+</body>
+
+</html>

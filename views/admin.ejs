@@ -83,13 +83,6 @@
         </div>
     </section>
 
-
-
-
-
-
-
-
     <section class="admin-section">
 
         <div class="container admin-container">
@@ -104,18 +97,23 @@
 
                 <% findUser.forEach((user,index)=> { %>
                     <div class="user-management flex items-center">
-                        <img src="./images/about.jpg" alt="">
+                        <img src= "/userImages/<%-user.image%>" alt="">
                         <span class="div-1">
                             <%-user.username%>
                         </span>
                         <span class="div-2">
                             <%-user.email%>
                         </span>
-                        <a href="/user/adminview/<%- user.id%>">
+
+                        <a href="/adminview/<%- user.id%>">
                             <i class="uil uil-edit"></i>
                         </a>
-                        <i class="uil uil-trash-alt"></i>
-                        <i class="uil uil-eye"></i>
+                        <a href="/adminview/delete/<%- user.id%>">
+                            <i class="uil uil-trash-alt"></i>
+                        </a>
+                        <a href="/adminview/<%- user.id%>">
+                            <i class="uil uil-eye"></i>
+                        </a>
                     </div>
                     <% }) %>
 
@@ -154,7 +152,7 @@
                             <i class="uil uil-eye"></i>
                         </a>
                     </div>
-                <% }) %>
+                    <% }) %>
             </div>
         </div>
     </section>

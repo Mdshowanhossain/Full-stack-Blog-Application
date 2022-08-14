@@ -74,6 +74,7 @@
     </div>
   </section>
 
+  <% if(getAllPost){ %>
   <div class="blog-card-wrapper container">
     <% getAllPost.forEach((post,index) => { %>
     <div class="blog-card">
@@ -82,17 +83,12 @@
       </div>
       <div class="blog-content">
         <a href="/blog/<%-post.id %>">
-          <h1><%-post.title %></h1>
+          <h1><%-post.title%></h1>
         </a>
         <div class="blog-text-elipisis">
-          <p><%-post.description %></p>
+          <p><%-post.description%></p>
         </div>
         <div class="content flex items-center">
-          <img
-            class="blog-user-img"
-            src="/userImages/<%-post.user.image%>"
-            alt=""
-          />
           <span><%-post.user.username%></span>
           <span><i class="uil uil-newspaper"></i> News</span>
           <span
@@ -102,9 +98,9 @@
         </div>
       </div>
     </div>
-
     <% }) %>
   </div>
+  <% } %>
 </section>
 
 <section>

@@ -45,31 +45,42 @@
     <section class="profile-section">
         <div class="profile-container container ">
             <div class="block-1">
-                <div class="left">
-                    <img src="/userImages/<%-viewUser.image %>" alt="">
-                    <span>
-                        <%-viewUser.username %>
-                    </span>
-                </div>
+              <div class="left">
+                <img src="/userImages/<%-viewUser.image %>" alt="">
+                <span>
+                  <%-viewUser.username %>
+                </span>
+              </div>
             </div>
             <div class="block-2">
-                <div class="right">
-                    <h1>ABOUT</h1>
-                    <form action="/user/update/<%-viewUser.id%>" method="POST" enctype="multipart/form-data">
-                        <div class="profile-about-container">
-                            <span>Full Name</span>
-                            <input type="text" name="username" placeholder="Full Name" value="<%-viewUser.username %>">
-                        </div>
-                        <div class="profile-about-container">
-                            <span>Email</span>
-                            <input type="text" name="email" placeholder="Email" value="<%-viewUser.email %>">
-                        </div>
-                       
-                        <button class="profile-btn">Update</button>
-                    </form>
-                </div>
+              <div class="right">
+                <h1>ABOUT</h1>
+                <form action="/adminview/update/<%-viewUser.id%>" method="POST" enctype="multipart/form-data">
+                  <div class="profile-about-container">
+                    <span>Full Name</span>
+                    <input type="text" name="username" placeholder="Full Name" value="<%-viewUser.username %>">
+                  </div>
+                  <div class="profile-about-container">
+                    <span>Email</span>
+                    <input type="text" name="email" placeholder="Email" value="<%-viewUser.email %>">
+                  </div>
+                  <div class="profile-about-container">
+                    <span>Password</span>
+                    <input type="password" name="password" placeholder="Password">
+                  </div>
+                  <div class="profile-about-container">
+                    <span>Confirm Password</span>
+                    <input type="password" name="cPassword" placeholder="Confirm Password">
+                  </div>
+                  <div class="profile-about-container">
+                    <span>Profile Photo</span>
+                    <input type="file" name="image" id="" required="true">
+                  </div>
+                  <button class="profile-btn">Update</button>
+                </form>
+              </div>
             </div>
-        </div>
+          </div>
     </section>
 
 

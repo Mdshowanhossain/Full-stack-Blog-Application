@@ -21,13 +21,15 @@ const Registration = async (req, res) => {
       });
     }
     const hashpass = await securePassword(req.body.password, 10);
-
+    const pic = req.file.filename ? req.file.filename : "";
+    console.log(pic);
     const user = new UserModel({
       username: req.body.username,
       email: req.body.email,
       password: hashpass,
-      image: req.file.filename,
+      image: pic,
     });
+    console.log("Body User--", user);
     const validateUser = await UserModel.findOne({ email: req.body.email });
     if (validateUser) {
       return res
@@ -38,7 +40,9 @@ const Registration = async (req, res) => {
     await user.save();
     res.status(200).redirect("/login");
   } catch (err) {
-    res.status(500).send({ success: false, message: err.message });
+    return res
+      .status(500)
+      .send({ success: false, message: err.message, Mamun: "help sohan" });
   }
 };
 
@@ -93,14 +97,16 @@ const forgetPassword = async (req, res) => {
       .status(404)
       .send({ success: false, message: "This E-mail have no account!" });
   } else {
-    const secret = process.env.JWT_SECRET + findEmail.password;
+    const secret = process.env.JWT_SECRET;
 
     const payload = {
-      email: findEmail.email,
       id: findEmail.id,
+      email: findEmail.email,
     };
 
     const jwtToken = await jwt.sign(payload, secret, { expiresIn: "15min" });
+
+    // console.log(jwtToken);
 
     const link = `http://localhost:8000/auth/resetpassword/${findEmail.id}/${jwtToken}`;
 
@@ -139,26 +145,16 @@ const resetPassword = async (req, res) => {
       .send({ success: false, message: "Acctual user not found" });
   }
 
-  const secret = process.env.JWT_SECRET + findUser.password;
+  const secret = process.env.JWT_SECRET;
 
   await jwt.verify(token, secret, { expiresIn: "15min" });
 
   res.render("resetpassword", {
     title: "USER || RESET PASSWORD LINK",
-    id: findUser.id,
+    id: id,
     token: token,
     email: findUser.email,
   });
-
-  // res.render(
-  //   "resetpassword",
-  //   { title: "USER || RESET PASSWORD LINK" },
-  //   {
-  //     email: findUser.email,
-  //     id: findUser.id,
-  //     token: token,
-  //   }
-  // );
 };
 
 const resetPasswordUpdate = async (req, res) => {
@@ -170,7 +166,7 @@ const resetPasswordUpdate = async (req, res) => {
         .status(403)
         .send({ success: false, message: "Acctual user not found" });
     }
-    const secret = process.env.JWT_SECRET + findUser.password;
+    const secret = process.env.JWT_SECRET;
     await jwt.verify(token, secret, { expiresIn: "15min" });
 
     const { password, cPassword } = req.body;
@@ -183,7 +179,7 @@ const resetPasswordUpdate = async (req, res) => {
 
     const hashpassword = await bcrypt.hash(req.body.password, 10);
 
-    const updateUser = await UserModel.findByIdAndUpdate(
+    await UserModel.findByIdAndUpdate(
       req.params.id,
       {
         $set: {

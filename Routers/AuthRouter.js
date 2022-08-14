@@ -20,7 +20,7 @@ const storage = multer.diskStorage({
       null,
       path.join(__dirname, "../public/userImages"),
       function (error, success) {
-        if (error) throw error;
+        if (error) return console.log("I am Error From multer", error);
       }
     );
   },
